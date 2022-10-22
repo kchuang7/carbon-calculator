@@ -2,7 +2,7 @@
 
 The goal of this calculator is to provide a rough but useful carbon footprint calculation based on simple lifestyle data points. Inputs are in consumption units instead of equivalent dollars due to high variability in utility/raw material costs. Utility statements commonly have consumption numbers and payment due figures in tandem.
 
-In addition, the calculator will demonstrate the relative decrease in CO~2~ emissions when implementing various different measures. We will assume a zip code of 94114 for certain EFs used. Some carbon-generating categories are omitted in the interest of time. 
+In addition, the calculator will demonstrate the relative decrease in CO<sub>2</sub> emissions when implementing various different measures. We will assume a zip code of 94114 for certain EFs used. Some carbon-generating categories are omitted in the interest of time. 
 
 ## Design Process
 1. Intake requirements and parameters, such as scope, time and resource constraints, tech stack, etc.
@@ -13,33 +13,33 @@ In addition, the calculator will demonstrate the relative decrease in CO~2~ emis
 
 ## Housing
 ### Electricity
-- CAMX CO~2~ Factor: 496.5 lb CO~2~e/MWh
+- CAMX CO<sub>2</sub> Factor: 496.5 lb CO<sub>2</sub>e/MWh
 - Input: kWh/mo
 - Offsets: 
   - LED lighting instead of incandescent: 20% household electricity is lighting. LEDs use 1/30 the energy as incandescents.
-  - ENERGY STAR Refrigerator: 197 lb CO~2~e/yr reduction
-  - ENERGY STAR Windows: 4531 lb CO~2~e/yr reduction
+  - ENERGY STAR Refrigerator: 197 lb CO<sub>2</sub>e/yr reduction
+  - ENERGY STAR Windows: 4531 lb CO<sub>2</sub>e/yr reduction
 
 ### Natural Gas
-- EF: 6.6 kg CO~2~e/therm
+- EF: 6.6 kg CO<sub>2</sub>e/therm
 - Input: therm/mo
 
 ### Fuel Oil
-- EF: 11.6 CO~2~e/US gallon
+- EF: 11.6 CO<sub>2</sub>e/US gallon
 - Input: US gallon/mo
 
 ### Liquid Petroleum Gas (Propane)
-- EF: 6.8 CO~2~e/US gallon
+- EF: 6.8 CO<sub>2</sub>e/US gallon
 - Input: US gallon/mo
 
 ### Waste (MSW)
-- 692 lb CO~2~e/yr per resident
+- 692 lb CO<sub>2</sub>e/yr per resident
 - Input: number of residents
 - Offsets:
-  - Composting: 69.5% of waste can be composted. Composted waste has 10.294% the emissions compared to landfilled waste. This brings emissions down to 211.06 + 49.5 = 260.56 CO~2~e/yr per resident
+  - Composting: 69.5% of waste can be composted. Composted waste has 10.294% the emissions compared to landfilled waste. This brings emissions down to 211.06 + 49.5 = 260.56 CO<sub>2</sub>e/yr per resident
 
 ### Water
-- EF: 5875 kWh/MG then use CAMX CO~2~ factor
+- EF: 5875 kWh/MG then use CAMX CO<sub>2</sub> factor
 - Input: US gallon/mo
 
 ## Travel
