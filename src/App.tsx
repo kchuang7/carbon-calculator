@@ -2,11 +2,12 @@ import * as React from 'react'
 import {
   ChakraProvider,
   Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
+  Flex,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
   theme
 } from '@chakra-ui/react'
 import { ColorModeSwitcher } from './ColorModeSwitcher'
@@ -14,25 +15,25 @@ import { ColorModeSwitcher } from './ColorModeSwitcher'
 function App (): JSX.Element {
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign='center' fontSize='xl'>
-        <Grid minH='100vh' p={3}>
-          <ColorModeSwitcher justifySelf='flex-end' />
-          <VStack spacing={8}>
-            <Text>
-              Edit <Code fontSize='xl'>src/App.tsx</Code> and save to reload.
-            </Text>
-            <Link
-              color='teal.500'
-              href='https://chakra-ui.com'
-              fontSize='2xl'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
+      <Box p='4' textAlign='right' fontSize='xl'>
+        <ColorModeSwitcher justifySelf='flex-end' />
       </Box>
+      <Flex h='80vh' p='4' align="center" justify="center">
+        <Tabs variant='soft-rounded' colorScheme='blue'>
+          <TabList>
+            <Tab>Tab 1</Tab>
+            <Tab>Tab 2</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <p>one!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>two!</p>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+      </Flex>
     </ChakraProvider>
   )
 }
