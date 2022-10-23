@@ -1,6 +1,6 @@
 # Personal Carbon Calculator
 
-The goal of this calculator is to provide a rough but useful carbon footprint calculation based on simple lifestyle data points. Inputs are in consumption units instead of equivalent dollars due to high variability in utility/raw material costs. Utility statements commonly have consumption numbers and payment due figures in tandem.
+The goal of this calculator is to provide a rough but useful carbon footprint calculation based on simple lifestyle data points. Inputs are in consumption units instead of equivalent dollars due to high variability in utility/raw material costs. Utility statements commonly have consumption numbers and payment due figures in tandem. Output will always be kg CO<sub>2</sub>e/yr.
 
 In addition, the calculator will demonstrate the relative decrease in CO<sub>2</sub> emissions when implementing various different measures. We will assume a zip code of 94114 for certain EFs used. Some carbon-generating categories are omitted in the interest of time. 
 
@@ -15,7 +15,8 @@ In addition, the calculator will demonstrate the relative decrease in CO<sub>2</
 ### Electricity
 - CAMX CO<sub>2</sub> Factor: 496.5 lb CO<sub>2</sub>e/MWh
 - Input: kWh/mo
-- Offsets: 
+- Output: E = N (kWh/mo) * 0.001 (MWh/kWh) * 12 (mo/yr) * EF (lb CO<sub>2</sub>e/MWh) * 1/2.205 (kg/lb)
+- Offsets:
   - LED lighting instead of incandescent: 20% household electricity is lighting. LEDs use 1/30 the energy as incandescents.
   - ENERGY STAR Refrigerator: 197 lb CO<sub>2</sub>e/yr reduction
   - ENERGY STAR Windows: 4531 lb CO<sub>2</sub>e/yr reduction
@@ -23,26 +24,33 @@ In addition, the calculator will demonstrate the relative decrease in CO<sub>2</
 ### Natural Gas
 - EF: 6.6 kg CO<sub>2</sub>e/therm
 - Input: therm/mo
+- Output: N (therm/mo) * 12 (mo/yr) * EF (kg CO<sub>2</sub>e/therm)
 
 ### Fuel Oil
-- EF: 11.6 CO<sub>2</sub>e/US gallon
+- EF: 11.6 kg CO<sub>2</sub>e/US gallon
 - Input: US gallon/mo
+- Output: N (US gallon/mo) * 12 (mo/yr) * EF (kg CO<sub>2</sub>e/US gallon)
 
 ### Liquid Petroleum Gas (Propane)
-- EF: 6.8 CO<sub>2</sub>e/US gallon
+- EF: 6.8 kg CO<sub>2</sub>e/US gallon
 - Input: US gallon/mo
+- Output: N (US gallon/mo) * 12 (mo/yr) * EF (kg CO<sub>2</sub>e/US gallon)
 
 ### Waste (MSW)
 - 692 lb CO<sub>2</sub>e/yr per resident
 - Input: number of residents
+- Output: N (number of residents) * EF (lb CO<sub>2</sub>e/yr per resident) * 1/2.205 (kg/lb)
 - Offsets:
   - Composting: 69.5% of waste can be composted. Composted waste has 10.294% the emissions compared to landfilled waste. This brings emissions down to 211.06 + 49.5 = 260.56 CO<sub>2</sub>e/yr per resident
 
 ### Water
 - EF: 5875 kWh/MG then use CAMX CO<sub>2</sub> factor
 - Input: US gallon/mo
+- Output: N (US gallon/mo) * 1/1000000 (MG/US gallon) * EF (kWh/MG) * E (electricity emissions function)
 
 ## Travel
+- Output: N (miles/yr) * EF (kg CO<sub>2</sub>e/mile)
+
 ### Vehicle
 - EF for passenger car: 0.335 kg CO<sub>2</sub>e/mile
 - Input: vehicle-miles/yr
