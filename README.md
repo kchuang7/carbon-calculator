@@ -44,16 +44,28 @@ In addition, the calculator will demonstrate the relative decrease in CO<sub>2</
 
 ## Travel
 ### Vehicle
+- EF for passenger car: 0.335 kg CO<sub>2</sub>e/mile
+- Input: vehicle-miles/yr
 
 ### Bus
+- EF: 0.053 kg CO<sub>2</sub>e/mile
+- Input: passenger-miles/yr
 
 ### Metro
+- EF for transit rail: 0.099 kg CO<sub>2</sub>e/mile
+- Input: passenger-miles/yr
 
 ### Taxi
+- EF for passenger car: 0.335 kg CO<sub>2</sub>e/mile
+- Input: passenger-miles/yr
 
 ### Rail
+- EF for commuter rail: 0.148 kg CO<sub>2</sub>e/mile
+- Input: passenger-miles/yr
 
 ### Flying
+- EF average for various flight lengths: 0.174 kg CO<sub>2</sub>e/mile
+- Input: passenger-miles/yr
 
 ## References
 - https://www3.epa.gov/carbon-footprint-calculator/
