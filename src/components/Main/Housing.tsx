@@ -1,7 +1,10 @@
 import React, { ChangeEvent } from 'react'
 import axios from 'axios'
 import {
+  Box,
   Flex,
+  FormLabel,
+  Text,
   Input
 } from '@chakra-ui/react'
 // types
@@ -10,39 +13,32 @@ import MainPropTypes from '../../types/MainPropTypes'
 
 interface InputType {
   label: string
-  placeholder: string
   valueName: string
 }
 
 const HOUSING_INPUTS: InputType[] = [
   {
-    label: 'Electricity',
-    placeholder: 'Usage in kWh/mo',
+    label: 'Electricity (kWh/mo)',
     valueName: 'electricity'
   },
   {
-    label: 'Natural Gas',
-    placeholder: 'Usage in therm/mo',
+    label: 'Natural Gas (therm/mo)',
     valueName: 'naturalGas'
   },
   {
-    label: 'Fuel Oil',
-    placeholder: 'Usage in US gallon/mo',
+    label: 'Fuel Oil (US gallon/mo)',
     valueName: 'fuelOil'
   },
   {
-    label: 'Propane',
-    placeholder: 'Usage in US gallon/mo',
+    label: 'Propane (US gallon/mo)',
     valueName: 'lfg'
   },
   {
-    label: 'Waste',
-    placeholder: 'Number of residents',
+    label: 'Waste (number of residents)',
     valueName: 'waste'
   },
   {
-    label: 'Water',
-    placeholder: 'Usage in US gallon/mo',
+    label: 'Water (US gallon/mo)',
     valueName: 'water'
   }
 ]
@@ -50,31 +46,35 @@ const HOUSING_INPUTS: InputType[] = [
 function Housing ({ usageValues, setUsageValues }: MainPropTypes): JSX.Element {
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>, valueName: string): void => {
     const value: string = target.value
-    axios.get(`/emissions/housing/${valueName}?usage=${value}`)
-      .then((): void => {
-        setUsageValues((prev: UsageValuesType): UsageValuesType => ({
-          ...prev,
-          [valueName]: isNaN(Number(value))
-            ? prev[valueName]
-            : value
-        }))
-      })
-      .catch(console.error)
+
+    // only make web request if parsed input is number
+    if (!isNaN(Number(value))) {
+      axios.get(`/emissions/housing/${valueName}?usage=${value}`)
+        .then(({ data }): void => {
+          console.log(data)
+          setUsageValues((prev: UsageValuesType): UsageValuesType => ({
+            ...prev,
+            [valueName]: value
+          }))
+        })
+        .catch(console.error)
+    } // end if
   } // end handleChange
 
   return (
-    <Flex w='100%' p='4' align="center" justify="center" direction="column">
+    <Flex w='50%' align="left" justify="center" direction="column">
       {
         HOUSING_INPUTS.map((subcategory: InputType): JSX.Element => (
-          <React.Fragment key={subcategory.label}>
-            {subcategory.label}
-            <Input
-              autoComplete='new-password'
-              placeholder={subcategory.placeholder}
-              value={usageValues[subcategory.valueName]}
-              onChange={(e) => handleChange(e, subcategory.valueName)}
-            />
-          </React.Fragment>
+          <Box key={subcategory.label} my='2'>
+            <FormLabel>
+              <Text mb='2'>{subcategory.label}</Text>
+              <Input
+                autoComplete='new-password'
+                value={usageValues[subcategory.valueName]}
+                onChange={(e) => handleChange(e, subcategory.valueName)}
+              />
+            </FormLabel>
+          </Box>
         ))
       }
     </Flex>
