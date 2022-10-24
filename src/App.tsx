@@ -1,39 +1,34 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import {
   ChakraProvider,
   Box,
-  Flex,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
   theme
 } from '@chakra-ui/react'
 import { ColorModeSwitcher } from './ColorModeSwitcher'
+// components
+import Main from './components/Main'
+// types
+import UsageValuesType from './types/UsageValuesType'
 
 function App (): JSX.Element {
+  const [usageValues, setUsageValues] = useState<UsageValuesType>({
+    electricity: '',
+    naturalGas: '',
+    fuelOil: '',
+    lfg: '',
+    waste: '',
+    water: ''
+  })
+
   return (
     <ChakraProvider theme={theme}>
       <Box p='4' textAlign='right' fontSize='xl'>
         <ColorModeSwitcher justifySelf='flex-end' />
       </Box>
-      <Flex h='80vh' p='4' align="center" justify="center">
-        <Tabs variant='soft-rounded' colorScheme='blue'>
-          <TabList>
-            <Tab>Tab 1</Tab>
-            <Tab>Tab 2</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel>
-              <p>one!</p>
-            </TabPanel>
-            <TabPanel>
-              <p>two!</p>
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
-      </Flex>
+      <Main
+        usageValues={usageValues}
+        setUsageValues={setUsageValues}
+      />
     </ChakraProvider>
   )
 }
