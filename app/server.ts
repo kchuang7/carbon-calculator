@@ -28,6 +28,14 @@ app.get('/emissions/housing/:subcategory', (req: Request, res: Response): void =
   }
 })
 
+app.get('/emissions/travel/:subcategory', (req: Request, res: Response): void => {
+  if (!['vehicle', 'bus', 'metro', 'taxi', 'rail', 'flying'].includes(req.params.subcategory)) {
+    res.sendStatus(400)
+  } else {
+    res.json({ emissionsPerYear: calculations.getEmissionsTravel(req.params.subcategory, Number(req.query.milesTraveled)) })
+  }
+})
+
 app.listen(port, (): void => {
   console.log(`⚡️[server]: Server is running at https://localhost:${port}`)
 })
