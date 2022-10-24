@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react'
+import axios from 'axios'
 import {
   Flex,
   Input
@@ -47,6 +48,20 @@ const HOUSING_INPUTS: InputType[] = [
 ]
 
 function Housing ({ usageValues, setUsageValues }: MainPropTypes): JSX.Element {
+  const handleChange = ({ target }: ChangeEvent<HTMLInputElement>, valueName: string): void => {
+    const value: string = target.value
+    axios.get(`/emissions/housing/${valueName}?usage=${value}`)
+      .then((): void => {
+        setUsageValues((prev: UsageValuesType): UsageValuesType => ({
+          ...prev,
+          [valueName]: isNaN(Number(value))
+            ? prev[valueName]
+            : value
+        }))
+      })
+      .catch(console.error)
+  } // end handleChange
+
   return (
     <Flex w='100%' p='4' align="center" justify="center" direction="column">
       {
@@ -57,10 +72,7 @@ function Housing ({ usageValues, setUsageValues }: MainPropTypes): JSX.Element {
               autoComplete='new-password'
               placeholder={subcategory.placeholder}
               value={usageValues[subcategory.valueName]}
-              onChange={({ target }: ChangeEvent<HTMLInputElement>) => setUsageValues((prev: UsageValuesType): UsageValuesType => ({
-                ...prev,
-                [subcategory.valueName]: target.value
-              }))}
+              onChange={(e) => handleChange(e, subcategory.valueName)}
             />
           </React.Fragment>
         ))
