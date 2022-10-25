@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 // types
 import UsageValuesType from '../../types/UsageValuesType'
+import EmissionsType from '../../types/EmissionsType'
 import MainPropTypes from '../../types/MainPropTypes'
 
 interface InputType {
@@ -39,7 +40,7 @@ const INPUTS: { [key: string]: InputType[] } = {
   ]
 }
 
-function Inputs ({ category, usageValues, setUsageValues }: PropTypes): JSX.Element {
+function Inputs ({ category, usageValues, setUsageValues, setEmissions }: PropTypes): JSX.Element {
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>, valueName: string): void => {
     const value: string = target.value
 
@@ -47,10 +48,15 @@ function Inputs ({ category, usageValues, setUsageValues }: PropTypes): JSX.Elem
     if (!isNaN(Number(value))) {
       axios.get(`/emissions/${category}/${valueName}?usage=${value}`)
         .then(({ data }): void => {
-          console.log(data)
+          // update input
           setUsageValues((prev: UsageValuesType): UsageValuesType => ({
             ...prev,
             [valueName]: value
+          }))
+          // update emissions value
+          setEmissions((prev: EmissionsType): EmissionsType => ({
+            ...prev,
+            [valueName]: data.emissionsPerYear
           }))
         })
         .catch(console.error)

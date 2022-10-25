@@ -9,6 +9,7 @@ import { ColorModeSwitcher } from './ColorModeSwitcher'
 import Main from './components/Main'
 // types
 import UsageValuesType from './types/UsageValuesType'
+import EmissionsType from './types/EmissionsType'
 
 function App (): JSX.Element {
   const [usageValues, setUsageValues] = useState<UsageValuesType>({
@@ -25,6 +26,20 @@ function App (): JSX.Element {
     rail: '',
     flying: ''
   })
+  const [emissions, setEmissions] = useState<EmissionsType>({
+    electricity: 0,
+    naturalGas: 0,
+    fuelOil: 0,
+    lfg: 0,
+    waste: 0,
+    water: 0,
+    vehicle: 0,
+    bus: 0,
+    metro: 0,
+    taxi: 0,
+    rail: 0,
+    flying: 0
+  })
 
   return (
     <ChakraProvider theme={theme}>
@@ -34,6 +49,7 @@ function App (): JSX.Element {
       <Main
         usageValues={usageValues}
         setUsageValues={setUsageValues}
+        setEmissions={setEmissions}
       />
     </ChakraProvider>
   )
