@@ -7,13 +7,9 @@ import {
 // components
 import Chart from './Chart'
 // types
-import EmissionsType from '../../types/EmissionsType'
+import EmissionsPropTypes from '../../types/EmissionsPropTypes'
 
-interface PropTypes {
-  emissions: EmissionsType
-}
-
-function Emissions ({ emissions }: PropTypes): JSX.Element {
+function Emissions ({ emissions }: EmissionsPropTypes): JSX.Element {
   const totalEmissions = Object.values(emissions).reduce((a: number, c: number): number => a + c, 0)
   return (
     <Flex w='30%' h='80vh' justify="center">

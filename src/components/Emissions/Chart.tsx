@@ -14,7 +14,7 @@ import {
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 // types
-import EmissionsType from '../../types/EmissionsType'
+import EmissionsPropTypes from '../../types/EmissionsPropTypes'
 
 ChartJS.register(
   CategoryScale,
@@ -27,11 +27,7 @@ ChartJS.register(
 
 const labels: string[] = ['Electricity', 'Natural Gas', 'Fuel Oil', 'Propane', 'Waste', 'Water', 'Vehicle', 'Bus', 'Metro', 'Taxi', 'Rail', 'Flying']
 
-interface PropTypes {
-  emissions: EmissionsType
-}
-
-function Emissions ({ emissions }: PropTypes): JSX.Element {
+function Emissions ({ emissions }: EmissionsPropTypes): JSX.Element {
   const color: string = useColorModeValue('#333', '#ccc')
   const barColor: string = useColorModeValue('#ff6384', '#ff7171')
   const scaleOptions: { ticks: { color: string }, grid: { display: boolean } } = {
