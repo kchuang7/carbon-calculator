@@ -31,12 +31,12 @@ const INPUTS: { [key: string]: InputType[] } = {
     { label: 'Water (US gallon/mo)', valueName: 'water' }
   ],
   travel: [
-    { label: 'Vehicle (miles)', valueName: 'vehicle' },
-    { label: 'Bus (miles)', valueName: 'bus' },
-    { label: 'Metro (miles)', valueName: 'metro' },
-    { label: 'Taxi (miles)', valueName: 'taxi' },
-    { label: 'Rail (miles)', valueName: 'rail' },
-    { label: 'Flying (miles)', valueName: 'flying' }
+    { label: 'Vehicle (miles/year)', valueName: 'vehicle' },
+    { label: 'Bus (miles/year)', valueName: 'bus' },
+    { label: 'Metro (miles/year)', valueName: 'metro' },
+    { label: 'Taxi (miles/year)', valueName: 'taxi' },
+    { label: 'Rail (miles/year)', valueName: 'rail' },
+    { label: 'Flying (miles/year)', valueName: 'flying' }
   ]
 }
 
