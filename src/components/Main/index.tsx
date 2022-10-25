@@ -7,7 +7,7 @@ import {
   Tab,
   TabPanel
 } from '@chakra-ui/react'
-import Housing from './Housing'
+import Inputs from './Inputs'
 import MainPropTypes from '../../types/MainPropTypes'
 
 function Main (props: MainPropTypes): JSX.Element {
@@ -20,13 +20,18 @@ function Main (props: MainPropTypes): JSX.Element {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <Housing
+            <Inputs
+              category='housing'
               usageValues={props.usageValues}
               setUsageValues={props.setUsageValues}
             />
           </TabPanel>
           <TabPanel>
-            <p>two!</p>
+            <Inputs
+              category='travel'
+              usageValues={props.usageValues}
+              setUsageValues={props.setUsageValues}
+            />
           </TabPanel>
         </TabPanels>
       </Tabs>

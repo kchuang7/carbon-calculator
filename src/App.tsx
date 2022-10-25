@@ -17,7 +17,13 @@ function App (): JSX.Element {
     fuelOil: '',
     lfg: '',
     waste: '',
-    water: ''
+    water: '',
+    vehicle: '',
+    bus: '',
+    metro: '',
+    taxi: '',
+    rail: '',
+    flying: ''
   })
 
   return (

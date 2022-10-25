@@ -63,7 +63,7 @@ app.get('/emissions/:category/:subcategory', (req: Request, res: Response): void
       if (!['vehicle', 'bus', 'metro', 'taxi', 'rail', 'flying'].includes(req.params.subcategory)) {
         res.sendStatus(400)
       } else {
-        res.json({ emissionsPerYear: calculations.getEmissionsTravel(req.params.subcategory, Number(req.query.milesTraveled)) })
+        res.json({ emissionsPerYear: calculations.getEmissionsTravel(req.params.subcategory, Number(req.query.usage)) })
       }
       break
     default:
