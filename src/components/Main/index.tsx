@@ -12,8 +12,8 @@ import MainPropTypes from '../../types/MainPropTypes'
 
 function Main ({ usageValues, setUsageValues, setEmissions }: MainPropTypes): JSX.Element {
   return (
-    <Flex h='80vh' p='4' align="center" justify="center">
-      <Tabs w='80%' variant='soft-rounded' colorScheme='blue'>
+    <Flex w='40%' h='80vh' p='4' align="center" justify="center">
+      <Tabs w='100%' variant='soft-rounded' colorScheme='blue'>
         <TabList>
           <Tab mr='2'>Housing</Tab>
           <Tab>Travel</Tab>

@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import {
   ChakraProvider,
   Box,
+  Flex,
   theme
 } from '@chakra-ui/react'
 import { ColorModeSwitcher } from './ColorModeSwitcher'
 // components
 import Main from './components/Main'
+import Emissions from './components/Emissions'
 // types
 import UsageValuesType from './types/UsageValuesType'
 import EmissionsType from './types/EmissionsType'
@@ -46,11 +48,14 @@ function App (): JSX.Element {
       <Box p='4' textAlign='right' fontSize='xl'>
         <ColorModeSwitcher justifySelf='flex-end' />
       </Box>
-      <Main
-        usageValues={usageValues}
-        setUsageValues={setUsageValues}
-        setEmissions={setEmissions}
-      />
+      <Flex w='100%' justify='center' direction='row'>
+        <Main
+          usageValues={usageValues}
+          setUsageValues={setUsageValues}
+          setEmissions={setEmissions}
+        />
+        <Emissions emissions={emissions} />
+      </Flex>
     </ChakraProvider>
   )
 }

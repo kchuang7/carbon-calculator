@@ -64,7 +64,7 @@ function Inputs ({ category, usageValues, setUsageValues, setEmissions }: PropTy
   } // end handleChange
 
   return (
-    <Flex w='50%' align="left" justify="center" direction="column">
+    <Flex align="left" justify="center" direction="column">
       {
         INPUTS[category].map((subcategory: InputType): JSX.Element => (
           <Box key={subcategory.label} my='2'>
