@@ -32,5 +32,12 @@ export default {
   // travel
   getEmissionsTravel: (travelMode: string, milesTraveled: number): number => {
     return milesTraveled * travelModeToEF[travelMode]
+  },
+  // offsets
+  applyLedLightingOffset: (currentElectricityEmissions: number, reverseOffset: boolean = false): number => {
+    return !reverseOffset ? currentElectricityEmissions * (121 / 150) : currentElectricityEmissions * (150 / 121)
+  },
+  applyCompostOffset: (currentWasteEmissions: number, reverseOffset: boolean = false): number => {
+    return !reverseOffset ? currentWasteEmissions * (260.56 / 692) : currentWasteEmissions * (692 / 260.56)
   }
 }

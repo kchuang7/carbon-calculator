@@ -1,8 +1,10 @@
-import UsagePropTypes from './UsageValuesType'
+import UsageValuesTypes from './UsageValuesType'
+import EmissionsType from './EmissionsType'
 
 interface MainPropTypes {
-  usageValues: UsagePropTypes
+  usageValues: UsageValuesTypes
   setUsageValues: Function
+  emissions: EmissionsType
   setEmissions: Function
 }
 

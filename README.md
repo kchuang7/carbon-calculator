@@ -17,9 +17,7 @@ In addition, the calculator will demonstrate the relative decrease in CO<sub>2</
 - Input: kWh/mo
 - Output: E = N (kWh/mo) * 0.001 (MWh/kWh) * 12 (mo/yr) * EF (lb CO<sub>2</sub>e/MWh) * 1/2.205 (kg/lb)
 - Offsets:
-  - LED lighting instead of incandescent: 20% household electricity is lighting. LEDs use 1/30 the energy as incandescents.
-  - ENERGY STAR Refrigerator: 197 lb CO<sub>2</sub>e/yr reduction
-  - ENERGY STAR Windows: 4531 lb CO<sub>2</sub>e/yr reduction
+  - LED lighting instead of incandescent: 20% household electricity is lighting. LEDs use 1/30 the energy as incandescents. This is equivalent to E * (121/150)
 
 ### Natural Gas
 - EF: 6.6 kg CO<sub>2</sub>e/therm

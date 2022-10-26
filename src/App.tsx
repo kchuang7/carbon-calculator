@@ -52,6 +52,7 @@ function App (): JSX.Element {
         <Main
           usageValues={usageValues}
           setUsageValues={setUsageValues}
+          emissions={emissions}
           setEmissions={setEmissions}
         />
         <Emissions emissions={emissions} />

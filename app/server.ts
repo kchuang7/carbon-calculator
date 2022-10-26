@@ -16,7 +16,7 @@ app.get('/', (req: Request, res: Response): void => {
  * /emissions/{category}/{subcategory}:
  *   get:
  *     summary: Retrieve emissions (kg CO2e/yr) for an input for a given subcategory.
- *     description: Performs emissions calculation using specificed subcategory resource usage.
+ *     description: Performs emissions calculation using specified subcategory resource usage.
  *     parameters:
  *       - in: path
  *         name: category
@@ -65,6 +65,43 @@ app.get('/emissions/:category/:subcategory', (req: Request, res: Response): void
       } else {
         res.json({ emissionsPerYear: calculations.getEmissionsTravel(req.params.subcategory, Number(req.query.usage)) })
       }
+      break
+    default:
+      res.sendStatus(400)
+      break
+  }
+})
+
+/**
+ * @swagger
+ * /emissions/{type}:
+ *   get:
+ *     summary: Calculate emissions offsets for specific behaviors.
+ *     description: Performs emissions calculation using specified offset behavior.
+ *     parameters:
+ *       - in: path
+ *         name: type
+ *         required: true
+ *         description: Offset behavior.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: The emissions per year calculation after offset is applied.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 emissionsPerYear: number
+ */
+app.get('/offset/:type', (req: Request, res: Response): void => {
+  switch (req.params.type) {
+    case 'ledLighting':
+      res.json({ emissionsPerYear: calculations.applyLedLightingOffset(Number(req.query.currentEmissions), req.query.isReverse === 'true') })
+      break
+    case 'compost':
+      res.json({ emissionsPerYear: calculations.applyCompostOffset(Number(req.query.currentEmissions), req.query.isReverse === 'true') })
       break
     default:
       res.sendStatus(400)

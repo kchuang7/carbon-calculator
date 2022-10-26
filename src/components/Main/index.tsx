@@ -14,9 +14,9 @@ import Inputs from './Inputs'
 // types
 import MainPropTypes from '../../types/MainPropTypes'
 
-function Main ({ usageValues, setUsageValues, setEmissions }: MainPropTypes): JSX.Element {
+function Main ({ usageValues, setUsageValues, emissions, setEmissions }: MainPropTypes): JSX.Element {
   return (
-    <Flex w='40%' h='80vh' p='4' align="center" justify="center">
+    <Flex w='35%' h='80vh' p='4' pb='0' align="center" justify="center">
       <Tabs w='100%' variant='soft-rounded' colorScheme='blue'>
         <TabList>
           <Tab mr='2'>
@@ -29,19 +29,21 @@ function Main ({ usageValues, setUsageValues, setEmissions }: MainPropTypes): JS
           </Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>
+          <TabPanel px='2'>
             <Inputs
               category='housing'
               usageValues={usageValues}
               setUsageValues={setUsageValues}
+              emissions={emissions}
               setEmissions={setEmissions}
             />
           </TabPanel>
-          <TabPanel>
+          <TabPanel px='2'>
             <Inputs
               category='travel'
               usageValues={usageValues}
               setUsageValues={setUsageValues}
+              emissions={emissions}
               setEmissions={setEmissions}
             />
           </TabPanel>
