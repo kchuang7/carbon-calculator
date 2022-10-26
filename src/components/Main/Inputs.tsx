@@ -49,6 +49,17 @@ const OFFSET_MAP: { [key: string]: string } = {
   compost: 'waste'
 }
 
+/**
+ * Inputs components letting user input categorical emissions activity and toggle offset behaviors.
+ *
+ * @component
+ * @param {string} category Selected tab corresponding to emissions category.
+ * @param {object} usageValues Usage value strings representing input values.
+ * @param {Function} setUsageValues Update usage value inputs.
+ * @param {object} emissions Emissions per subcategory.
+ * @param {Function} setEmissions Update emissions per subcategory.
+ * @return {React.ReactElement} Usage inputs and offset checkboxes.
+ */
 function Inputs ({ category, usageValues, setUsageValues, emissions, setEmissions }: PropTypes): JSX.Element {
   const [checkboxStates, setCheckboxStates] = useState<CheckboxStateTypes>({
     ledLighting: false,

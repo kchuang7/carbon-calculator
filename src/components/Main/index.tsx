@@ -14,6 +14,16 @@ import Inputs from './Inputs'
 // types
 import MainPropTypes from '../../types/MainPropTypes'
 
+/**
+ * Section containing emissions categories and usage inputs.
+ *
+ * @component
+ * @param {object} usageValues Usage value strings representing input values.
+ * @param {Function} setUsageValues Update usage value inputs.
+ * @param {object} emissions Emissions per subcategory.
+ * @param {Function} setEmissions Update emissions per subcategory.
+ * @return {React.ReactElement} Tabs and panels containing usage inputs.
+ */
 function Main ({ usageValues, setUsageValues, emissions, setEmissions }: MainPropTypes): JSX.Element {
   return (
     <Flex w='35%' h='80vh' p='4' pb='0' align="center" justify="center">

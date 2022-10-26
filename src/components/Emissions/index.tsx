@@ -9,6 +9,13 @@ import Chart from './Chart'
 // types
 import EmissionsPropTypes from '../../types/EmissionsPropTypes'
 
+/**
+ * Section containing emissions results.
+ *
+ * @component
+ * @param {object} emissions Emissions per subcategory.
+ * @return {React.ReactElement} Total emissions and emissions breakdown bar chart.
+ */
 function Emissions ({ emissions }: EmissionsPropTypes): JSX.Element {
   const totalEmissions = Object.values(emissions).reduce((a: number, c: number): number => a + c, 0)
   return (

@@ -13,6 +13,12 @@ import Emissions from './components/Emissions'
 import UsageValuesType from './types/UsageValuesType'
 import EmissionsType from './types/EmissionsType'
 
+/**
+ * Parent component containing entire carbon calculator app via composition pattern.
+ *
+ * @component
+ * @return {React.ReactElement} carbon calculator.
+ */
 function App (): JSX.Element {
   const [usageValues, setUsageValues] = useState<UsageValuesType>({
     electricity: '',

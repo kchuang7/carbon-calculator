@@ -27,6 +27,13 @@ ChartJS.register(
 
 const labels: string[] = ['Electricity', 'Natural Gas', 'Fuel Oil', 'Propane', 'Waste', 'Water', 'Vehicle', 'Bus', 'Metro', 'Taxi', 'Rail', 'Flying']
 
+/**
+ * Bar chart showing breakdown of all emissions subcategories and their relative impact.
+ *
+ * @component
+ * @param {object} emissions Emissions per subcategory.
+ * @return {React.ReactElement} Chart.js horizontal bar chart.
+ */
 function Emissions ({ emissions }: EmissionsPropTypes): JSX.Element {
   const color: string = useColorModeValue('#333', '#ccc')
   const barColor: string = useColorModeValue('#ff6384', '#ff7171')
