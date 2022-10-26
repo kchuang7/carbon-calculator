@@ -67,10 +67,11 @@ function Inputs ({ category, usageValues, setUsageValues, setEmissions }: PropTy
     <Flex align="left" justify="center" direction="column">
       {
         INPUTS[category].map((subcategory: InputType): JSX.Element => (
-          <Box key={subcategory.label} my='2'>
+          <Box key={subcategory.label}>
             <FormLabel>
-              <Text mb='2'>{subcategory.label}</Text>
+              <Text position='relative' w='fit-content' top='3' left='3' px='1' bg='var(--chakra-colors-chakra-body-bg)' zIndex='2'>{subcategory.label}</Text>
               <Input
+                h='54'
                 autoComplete='new-password'
                 value={usageValues[subcategory.valueName]}
                 onChange={(e) => handleChange(e, subcategory.valueName)}

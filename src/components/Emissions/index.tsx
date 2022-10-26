@@ -15,7 +15,7 @@ function Emissions ({ emissions }: EmissionsPropTypes): JSX.Element {
     <Flex w='30%' h='80vh' justify="center">
       <Stack w='100%' spacing='1' textAlign='center'>
         <Text fontSize='5xl'>{Math.round(totalEmissions * 10) / 10}</Text>
-        <Text>Estimated Emissions (kg CO<sub>2</sub>e/year)</Text>
+        <Text>Total Emissions (kg CO<sub>2</sub>e/year)</Text>
         <Chart emissions={emissions} />
       </Stack>
     </Flex>
