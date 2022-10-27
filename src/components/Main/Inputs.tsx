@@ -88,13 +88,13 @@ function Inputs ({ category, usageValues, setUsageValues, emissions, setEmission
     const value: string = currentTarget.value
     // only make web request if parsed input is number
     if (!isNaN(Number(value))) {
+      // update input
+      setUsageValues((prev: UsageValuesType): UsageValuesType => ({
+        ...prev,
+        [valueName]: value
+      }))
       axios.get(`/emissions/${category}/${valueName}?usage=${value}`)
         .then(({ data }: GetEmissionDataType): void => {
-          // update input
-          setUsageValues((prev: UsageValuesType): UsageValuesType => ({
-            ...prev,
-            [valueName]: value
-          }))
           // update emissions value
           setEmissions((prev: EmissionsType): EmissionsType => ({
             ...prev,
@@ -133,6 +133,7 @@ function Inputs ({ category, usageValues, setUsageValues, emissions, setEmission
                   {subcategory.label}
                 </Text>
                 <Input
+                  data-cy={`${subcategory.valueName}-input`}
                   h='54'
                   autoComplete='new-password'
                   value={usageValues[subcategory.valueName]}
@@ -145,6 +146,7 @@ function Inputs ({ category, usageValues, setUsageValues, emissions, setEmission
                 electricity: (
                   <Stack spacing='2' px='2' mb='2'>
                     <Checkbox
+                      data-cy='led-lighting-checkbox'
                       size='md'
                       colorScheme='blue'
                       isChecked={checkboxStates.ledLighting}
@@ -158,6 +160,7 @@ function Inputs ({ category, usageValues, setUsageValues, emissions, setEmission
                 waste: (
                   <Stack spacing='2' px='2' mb='2'>
                     <Checkbox
+                      data-cy='compost-checkbox'
                       size='md'
                       colorScheme='blue'
                       isChecked={checkboxStates.compost}

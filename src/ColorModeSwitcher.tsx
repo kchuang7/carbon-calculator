@@ -16,6 +16,7 @@ export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = (props) => {
 
   return (
     <IconButton
+      data-cy='theme-toggle-button'
       size='md'
       fontSize='lg'
       variant='ghost'

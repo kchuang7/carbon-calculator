@@ -24,7 +24,9 @@
     "esm": true
   },
   "include": [
+    "cypress.config.ts",
     "app",
+    "cypress",
     "src"
   ]
 }

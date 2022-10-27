@@ -29,11 +29,11 @@ function Main ({ usageValues, setUsageValues, emissions, setEmissions }: MainPro
     <Flex w='35%' h='80vh' p='4' pb='0' align="center" justify="center">
       <Tabs w='100%' variant='soft-rounded' colorScheme='blue'>
         <TabList>
-          <Tab mr='2'>
+          <Tab data-cy='housing-tab' mr='2'>
             <FaHouseDamage />
             <Text pl='2'>Housing</Text>
           </Tab>
-          <Tab mr='2'>
+          <Tab data-cy='travel-tab' mr='2'>
             <FaPlaneDeparture />
             <Text pl='2'>Travel</Text>
           </Tab>
