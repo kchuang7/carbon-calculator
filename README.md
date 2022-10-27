@@ -1,5 +1,7 @@
 # Personal Carbon Calculator
 
+[<img src="https://user-images.githubusercontent.com/5446734/198258385-8348272b-a6af-40d8-b9a2-b2aa3ff51be4.png" width="640" />]()
+
 ## Intro
 
 The goal of this calculator is to provide a rough but useful carbon footprint calculation based on simple lifestyle data points. Inputs are in consumption units instead of equivalent dollars due to high variability in utility/raw material costs. Utility statements commonly have consumption numbers and payment due figures in tandem. Output will always be kg CO<sub>2</sub>e/yr.
