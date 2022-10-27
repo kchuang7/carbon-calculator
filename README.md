@@ -1,15 +1,18 @@
 # Personal Carbon Calculator
 
-Build and run:
-<code>
-  npm i
-  npm run build
-  npm run node:dev
-</code>
+## Intro
 
 The goal of this calculator is to provide a rough but useful carbon footprint calculation based on simple lifestyle data points. Inputs are in consumption units instead of equivalent dollars due to high variability in utility/raw material costs. Utility statements commonly have consumption numbers and payment due figures in tandem. Output will always be kg CO<sub>2</sub>e/yr.
 
 In addition, the calculator will demonstrate the relative decrease in CO<sub>2</sub> emissions when implementing various different measures. We will assume a zip code of 94114 for certain EFs used. Some carbon-generating categories are omitted in the interest of time. 
+
+## Build and Run
+
+<code>npm i</code>
+
+<code>npm run build</code>
+
+<code>npm run node:dev</code>
 
 ## Design Process
 1. Intake requirements and parameters, such as scope, time and resource constraints, tech stack, etc.
